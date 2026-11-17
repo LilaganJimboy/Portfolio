@@ -3,1168 +3,333 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jimboy S. Lilagan - Executive Resume | Computer Vision Engineer & Full-Stack Developer</title>
+  <title>Jimboy S. Lilagan – Resume</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --navy-950: #06121e;
-      --navy-900: #0b1f36;
-      --navy-800: #102d4e;
-      --slate-800: #1e293b;
-      --slate-700: #334155;
-      --slate-600: #475569;
-      --slate-500: #64748b;
-      --slate-200: #e2e8f0;
-      --slate-100: #f1f5f9;
-      --slate-50: #f8fafc;
-      --ocean-600: #0284c7;
-      --ocean-700: #0369a1;
-      --ocean-50: #f0f9ff;
-      --teal-600: #0d9488;
-      --teal-50: #f0fdfa;
-      --emerald-600: #059669;
-      --emerald-50: #ecfdf5;
-      --border-color: #e2e8f0;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      color: var(--slate-800);
-      background-color: #f1f5f9;
-      line-height: 1.5;
-      padding: 24px 16px;
-      font-size: 12.5px;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Action bar */
-    .action-bar {
-      max-width: 900px;
-      margin: 0 auto 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #ffffff;
-      padding: 12px 20px;
-      border-radius: 14px;
-      border: 1px solid var(--border-color);
-      box-shadow: 0 4px 16px -2px rgba(11, 31, 54, 0.05);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 8px 16px;
-      border-radius: 9px;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      font-family: inherit;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%);
-      color: #ffffff;
-      border: 1px solid var(--navy-900);
-      box-shadow: 0 2px 8px rgba(11, 31, 54, 0.2);
-    }
-
-    .btn-primary:hover {
-      background: var(--navy-950);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(11, 31, 54, 0.3);
-    }
-
-    .btn-secondary {
-      background: #ffffff;
-      color: var(--slate-700);
-      border: 1px solid var(--border-color);
-    }
-
-    .btn-secondary:hover {
-      background: var(--slate-50);
-      border-color: var(--slate-500);
-    }
-
-    /* Resume Document Wrapper */
-    .resume-sheet {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #ffffff;
-      border-radius: 18px;
-      border: 1px solid var(--border-color);
-      box-shadow: 0 12px 36px -4px rgba(11, 31, 54, 0.08);
-      overflow: hidden;
-    }
-
-    /* Executive Header */
-    .hero-header {
-      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-      padding: 36px 44px 24px;
-      border-bottom: 1.5px solid var(--border-color);
-      position: relative;
-    }
-
-    .hero-header::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #0284c7 0%, #0d9488 50%, #0b1f36 100%);
-    }
-
-    .header-grid {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-
-    .profile-frame {
-      flex-shrink: 0;
-      width: 108px;
-      height: 108px;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 2.5px solid #0284c7;
-      background: #ffffff;
-      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.16);
-      position: relative;
-    }
-
-    .profile-photo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 20%;
-      display: block;
-    }
-
-    .header-details {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .name-badge-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    h1.candidate-name {
-      font-size: 26px;
-      font-weight: 800;
-      color: var(--navy-900);
-      letter-spacing: -0.6px;
-      line-height: 1.15;
-    }
-
-    .candidate-title {
-      font-size: 13.5px;
-      font-weight: 700;
-      color: var(--ocean-700);
-      margin-top: 3px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .title-separator {
-      color: #94a3b8;
-      font-weight: 400;
-    }
-
-    .ojt-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--emerald-50);
-      color: var(--emerald-600);
-      border: 1px solid #a7f3d0;
-      padding: 4px 10px;
-      border-radius: 9999px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      white-space: nowrap;
-    }
-
-    .ojt-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #059669;
-    }
-
-    /* Contact Links Strip */
-    .contact-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 18px;
-      margin-top: 12px;
-      font-size: 11.5px;
-      color: var(--slate-600);
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .contact-item a {
-      color: var(--slate-800);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .contact-item a:hover {
-      color: var(--ocean-600);
-      text-decoration: underline;
-    }
-
-    /* Unique Metric Highlights Ribbon */
-    .metric-ribbon {
-      background: linear-gradient(90deg, #f8fafc 0%, #f0fdfa 100%);
-      border-bottom: 1.5px solid var(--border-color);
-      padding: 12px 44px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .metric-cell {
-      border-left: 2.5px solid var(--teal-600);
-      padding-left: 10px;
-    }
-
-    .metric-val {
-      font-size: 13.5px;
-      font-weight: 800;
-      color: var(--navy-900);
-      font-family: 'JetBrains Mono', monospace;
-      line-height: 1.2;
-    }
-
-    .metric-lbl {
-      font-size: 10px;
-      font-weight: 600;
-      color: var(--slate-500);
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
-      margin-top: 1px;
-    }
-
-    /* Hybrid Split Layout */
-    .resume-body {
-      display: grid;
-      grid-template-columns: 1fr 280px;
-      gap: 0;
-    }
-
-    .main-column {
-      padding: 26px 36px 36px 44px;
-      border-right: 1.5px solid var(--border-color);
-    }
-
-    .side-column {
-      padding: 26px 32px 36px 28px;
-      background: #fafcff;
-    }
-
-    /* Section Styling */
-    .section-block {
-      margin-bottom: 22px;
-      page-break-inside: avoid;
-      break-inside: avoid;
-    }
-
-    .section-block:last-child {
-      margin-bottom: 0;
-    }
-
-    .section-heading {
-      font-size: 12px;
-      font-weight: 800;
-      color: var(--navy-900);
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 11px;
-      padding-bottom: 4px;
-      border-bottom: 1.5px solid #cbd5e1;
-    }
-
-    .section-heading-icon {
-      color: var(--ocean-600);
-      font-size: 13px;
-    }
-
-    .summary-text {
-      color: var(--slate-700);
-      line-height: 1.6;
-      font-size: 11.5px;
-      text-align: justify;
-    }
-
-    /* Experience / Projects Entries */
-    .entry-card {
-      margin-bottom: 16px;
-      page-break-inside: avoid;
-      break-inside: avoid;
-    }
-
-    .entry-card:last-child {
-      margin-bottom: 0;
-    }
-
-    .entry-title-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 10px;
-    }
-
-    .entry-headline {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--navy-900);
-    }
-
-    .entry-badge {
-      font-size: 10px;
-      font-weight: 700;
-      color: var(--ocean-700);
-      background: var(--ocean-50);
-      border: 1px solid #bae6fd;
-      padding: 2px 8px;
-      border-radius: 9999px;
-      white-space: nowrap;
-    }
-
-    .entry-subline {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--teal-600);
-      margin-top: 1px;
-      margin-bottom: 5px;
-    }
-
-    ul.entry-points {
-      list-style-type: disc;
-      padding-left: 17px;
-      font-size: 11.5px;
-      color: var(--slate-700);
-    }
-
-    ul.entry-points li {
-      margin-bottom: 4px;
-      line-height: 1.5;
-    }
-
-    ul.entry-points li:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Skills Pill Groups */
-    .skill-group {
-      margin-bottom: 12px;
-    }
-
-    .skill-group-name {
-      font-size: 10.5px;
-      font-weight: 700;
-      color: var(--navy-900);
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      margin-bottom: 4px;
-    }
-
-    .skill-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-    }
-
-    .pill {
-      font-size: 10.5px;
-      font-weight: 500;
-      color: var(--slate-700);
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      padding: 2px 7px;
-      border-radius: 5px;
-      line-height: 1.35;
-    }
-
-    .pill.highlight {
-      background: var(--ocean-50);
-      border-color: #7dd3fc;
-      color: var(--ocean-700);
-      font-weight: 600;
-    }
-
-    /* Certification Card */
-    .cert-badge-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 10px 12px;
-      margin-bottom: 10px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
-    }
-
-    .cert-badge-card:last-child {
-      margin-bottom: 0;
-    }
-
-    .cert-card-title {
-      font-size: 11.5px;
-      font-weight: 700;
-      color: var(--navy-900);
-      line-height: 1.3;
-    }
-
-    .cert-card-issuer {
-      font-size: 10.5px;
-      font-weight: 600;
-      color: var(--ocean-600);
-      margin-top: 1px;
-    }
-
-    .cert-card-meta {
-      font-size: 9.5px;
-      color: var(--slate-500);
-      margin-top: 2px;
-    }
-
-    /* Education Box */
-    .edu-block {
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 12px 14px;
-    }
-
-    .edu-degree {
-      font-size: 12.5px;
-      font-weight: 700;
-      color: var(--navy-900);
-    }
-
-    .edu-school {
-      font-size: 11.5px;
-      font-weight: 600;
-      color: var(--ocean-700);
-      margin-top: 1px;
-    }
-
-    .edu-info {
-      font-size: 11px;
-      color: var(--slate-600);
-      margin-top: 4px;
-      line-height: 1.5;
-    }
-
-    /* Attribute Item */
-    .attr-row {
-      margin-bottom: 7px;
-      font-size: 11px;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 10.5pt;
+      color: #1a1a1a;
+      background: #f0f0f0;
       line-height: 1.45;
     }
 
-    .attr-row strong {
-      color: var(--navy-900);
-      display: inline-block;
-      margin-right: 3px;
-    }
-
-    .attr-row span {
-      color: var(--slate-600);
-    }
-
-    /* Modal Styles */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(6, 18, 30, 0.65);
-      backdrop-filter: blur(4px);
+    /* ── Print / PDF export button ── */
+    #pdf-btn {
       display: flex;
-      align-items: center;
       justify-content: center;
-      z-index: 9999;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.2s ease;
-      padding: 16px;
+      padding: 12px;
+      background: #1e3a5f;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-
-    .modal-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .modal-card {
-      background: #ffffff;
-      width: 100%;
-      max-width: 480px;
-      border-radius: 16px;
-      padding: 24px 28px;
-      border: 1px solid var(--border-color);
-      box-shadow: 0 20px 30px -8px rgba(6, 18, 30, 0.2);
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-
-    .modal-title {
-      font-size: 17px;
-      font-weight: 800;
-      color: var(--navy-900);
-    }
-
-    .modal-close {
-      background: none;
-      border: none;
-      font-size: 22px;
-      line-height: 1;
-      cursor: pointer;
-      color: var(--slate-500);
-      padding: 4px 8px;
-      border-radius: 6px;
-    }
-
-    .modal-desc {
-      font-size: 12px;
-      color: var(--slate-600);
-      margin-bottom: 16px;
-    }
-
-    .modal-grid {
-      display: grid;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .option-btn {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 14px 16px;
-      border: 1.5px solid var(--border-color);
-      border-radius: 12px;
-      background: #ffffff;
-      text-align: left;
-      cursor: pointer;
-      font-family: inherit;
-      transition: all 0.2s;
-      width: 100%;
-    }
-
-    .option-btn:hover {
-      border-color: var(--ocean-600);
-      background: var(--ocean-50);
-      transform: translateY(-1px);
-    }
-
-    .option-btn.featured {
-      border-color: var(--navy-900);
-      background: #f8fafc;
-    }
-
-    .option-icon {
-      font-size: 22px;
-      line-height: 1;
-      flex-shrink: 0;
-    }
-
-    .option-head {
-      font-size: 13.5px;
-      font-weight: 700;
-      color: var(--navy-900);
-      margin-bottom: 2px;
-    }
-
-    .option-sub {
-      font-size: 11.5px;
-      color: var(--slate-500);
-    }
-
-    .option-tag {
-      display: inline-block;
-      margin-top: 5px;
-      font-size: 9.5px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      color: var(--ocean-700);
-      background: #e0f2fe;
-      padding: 2px 6px;
+    #pdf-btn button {
+      background: #fff;
+      color: #1e3a5f;
+      border: 2px solid #1e3a5f;
+      padding: 8px 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
       border-radius: 4px;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      transition: background 0.2s, color 0.2s;
+    }
+    #pdf-btn button:hover { background: #1e3a5f; color: #fff; }
+    @media print { #pdf-btn { display: none; } }
+
+    /* ── Paper wrapper ── */
+    .paper {
+      background: #fff;
+      width: 816px;
+      min-height: 1056px;
+      margin: 20px auto;
+      padding: 44px 52px 48px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.12);
     }
 
-    .modal-tip {
-      font-size: 11px;
-      color: var(--slate-500);
-      background: #f8fafc;
-      padding: 9px 12px;
-      border-radius: 8px;
-      border: 1px solid var(--border-color);
-      margin-bottom: 16px;
+    /* ── Header ── */
+    .header { display: flex; align-items: flex-start; gap: 24px; margin-bottom: 18px; }
+    .header-photo img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #1e3a5f;
     }
-
-    .modal-actions {
+    .header-text { flex: 1; }
+    .name {
+      font-size: 22pt;
+      font-weight: 700;
+      color: #1e3a5f;
+      letter-spacing: 0.5px;
+      line-height: 1.1;
+    }
+    .title {
+      font-size: 10.5pt;
+      font-weight: 500;
+      color: #4a6fa5;
+      margin-top: 3px;
+      margin-bottom: 8px;
+      letter-spacing: 0.2px;
+    }
+    .contact-strip {
       display: flex;
-      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 4px 18px;
+      font-size: 9.5pt;
+      color: #333;
+    }
+    .contact-strip a { color: #1e3a5f; text-decoration: none; }
+    .contact-strip a:hover { text-decoration: underline; }
+    .contact-item { display: flex; align-items: center; gap: 5px; }
+    .contact-icon { font-size: 11px; }
+
+    /* ── Section ── */
+    .section { margin-top: 15px; }
+    .section-title {
+      font-size: 9.5pt;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: #1e3a5f;
+      margin-bottom: 4px;
+    }
+    .section-divider {
+      border: none;
+      border-top: 1.8px solid #1e3a5f;
+      margin-bottom: 10px;
     }
 
-    /* PDF Rendering Mode */
-    .pdf-render-mode {
-      border: none !important;
-      box-shadow: none !important;
-      border-radius: 0 !important;
-      max-width: 100% !important;
-      background: #ffffff !important;
+    /* ── Summary ── */
+    .summary-text { font-size: 10pt; color: #333; line-height: 1.55; }
+
+    /* ── Experience / Project entries ── */
+    .entry { margin-bottom: 11px; }
+    .entry-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
+    .entry-title { font-weight: 600; font-size: 10.5pt; color: #1a1a1a; }
+    .entry-org { font-weight: 500; font-size: 10pt; color: #1e3a5f; }
+    .entry-date { font-size: 9.5pt; color: #666; white-space: nowrap; }
+    .entry-location { font-size: 9.5pt; color: #666; }
+    .entry-bullets { margin-top: 4px; padding-left: 18px; }
+    .entry-bullets li { margin-bottom: 2px; font-size: 10pt; color: #333; line-height: 1.5; }
+    .entry-tech {
+      display: inline-block;
+      margin-top: 4px;
+      font-size: 9pt;
+      color: #555;
+      font-style: italic;
     }
 
-    /* Print Media Query */
+    /* ── Education ── */
+    .edu-row { display: flex; justify-content: space-between; align-items: baseline; }
+    .edu-school { font-weight: 600; font-size: 10.5pt; color: #1a1a1a; }
+    .edu-date { font-size: 9.5pt; color: #666; }
+    .edu-degree { font-size: 10pt; color: #1e3a5f; font-weight: 500; margin-top: 1px; }
+    .edu-detail { font-size: 9.5pt; color: #555; margin-top: 2px; }
+
+    /* ── Certifications ── */
+    .cert-list { list-style: none; padding: 0; }
+    .cert-list li { font-size: 10pt; color: #333; margin-bottom: 4px; padding-left: 14px; position: relative; }
+    .cert-list li::before { content: "▸"; position: absolute; left: 0; color: #1e3a5f; font-size: 10px; top: 2px; }
+
+    /* ── Skills ── */
+    .skills-table { width: 100%; border-collapse: collapse; }
+    .skills-table td { vertical-align: top; padding: 2px 0; font-size: 10pt; }
+    .skill-cat { font-weight: 600; color: #1e3a5f; width: 155px; padding-right: 10px; white-space: nowrap; }
+    .skill-items { color: #333; line-height: 1.55; }
+
     @media print {
-      @page {
-        size: A4;
-        margin: 8mm 10mm;
-      }
-
-      body {
-        background: #ffffff;
-        padding: 0;
-        font-size: 11px;
-      }
-
-      .action-bar, .modal-overlay {
-        display: none !important;
-      }
-
-      .resume-sheet {
-        border: none !important;
-        box-shadow: none !important;
-        border-radius: 0 !important;
-        max-width: 100% !important;
-      }
-
-      .hero-header {
-        padding: 16px 20px 14px !important;
-      }
-
-      .metric-ribbon {
-        padding: 8px 20px !important;
-      }
-
-      .main-column {
-        padding: 14px 20px 14px 20px !important;
-      }
-
-      .side-column {
-        padding: 14px 18px 14px 16px !important;
-      }
-
-      .profile-frame, .ojt-pill, .entry-badge, .pill, .metric-ribbon, .hero-header::before {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-
-      .entry-card, .section-block, .cert-badge-card {
-        page-break-inside: avoid;
-        break-inside: avoid;
-      }
+      body { background: #fff; }
+      .paper { box-shadow: none; margin: 0; padding: 32px 44px; width: 100%; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Action Navigation Bar -->
-  <div class="action-bar">
-    <div>
-      <a href="index.html" class="btn btn-secondary">
-        <span>&larr;</span> Back to Portfolio
-      </a>
+<div id="pdf-btn">
+  <button onclick="exportPDF()">⬇ Download PDF</button>
+</div>
+
+<div class="paper">
+
+  <!-- ══ HEADER ══ -->
+  <div class="header">
+    <div class="header-photo">
+      <img src="profile.jpg" alt="Jimboy S. Lilagan">
     </div>
-    <div style="display: flex; gap: 10px; align-items: center;">
-      <a href="mailto:lilaganjimboy24@gmail.com" class="btn btn-secondary">
-        <span>&#9993;</span> Email Jimboy
-      </a>
-      <button type="button" class="btn btn-primary" onclick="openExportModal()">
-        <span>&#128229;</span> Download PDF / Print
-      </button>
-    </div>
-  </div>
-
-  <!-- Export Dialog Modal -->
-  <div class="modal-overlay" id="exportModal" onclick="handleBackdropClick(event)">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3 class="modal-title">Export / Save Resume</h3>
-        <button type="button" class="modal-close" onclick="closeExportModal()">&times;</button>
-      </div>
-      <p class="modal-desc">Choose your preferred format to save or print Jimboy S. Lilagan's resume:</p>
-      
-      <div class="modal-grid">
-        <button type="button" class="option-btn featured" id="btnSavePdf" onclick="handleSavePdf()">
-          <span class="option-icon">&#9889;</span>
-          <div>
-            <div class="option-head">Instant Download PDF</div>
-            <div class="option-sub">High-resolution vector PDF export rendered directly to your device.</div>
-            <span class="option-tag">Recommended &bull; Clean Output</span>
-          </div>
-        </button>
-
-        <button type="button" class="option-btn" onclick="handlePrint()">
-          <span class="option-icon">&#128424;</span>
-          <div>
-            <div class="option-head">Print / Save via Browser</div>
-            <div class="option-sub">Opens browser print dialog configured for standard A4 / Letter format.</div>
-          </div>
-        </button>
-      </div>
-
-      <div class="modal-tip">
-        &#128161; <strong>Tip:</strong> In the browser print dialog, set Destination to <strong>"Save as PDF"</strong> and enable <strong>"Background graphics"</strong> for best appearance.
-      </div>
-
-      <div class="modal-actions">
-        <button type="button" class="btn btn-secondary" onclick="closeExportModal()">Cancel</button>
+    <div class="header-text">
+      <div class="name">JIMBOY S. LILAGAN</div>
+      <div class="title">Computer Vision Engineer &amp; Full-Stack Developer &nbsp;|&nbsp; B.S. Computer Science Student</div>
+      <div class="contact-strip">
+        <span class="contact-item"><span class="contact-icon">📍</span> Isabela, Philippines</span>
+        <span class="contact-item"><span class="contact-icon">📱</span> +63 997 965 6825</span>
+        <span class="contact-item"><span class="contact-icon">📧</span> <a href="mailto:lilaganjimboy24@gmail.com">lilaganjimboy24@gmail.com</a></span>
+        <span class="contact-item"><span class="contact-icon">🐙</span> <a href="https://github.com/LilaganJimboy" target="_blank">github.com/LilaganJimboy</a></span>
       </div>
     </div>
   </div>
 
-  <!-- Main Resume Sheet Container -->
-  <main class="resume-sheet" id="resumeDoc">
-    
-    <!-- Executive Header with Profile Framing -->
-    <header class="hero-header">
-      <div class="header-grid">
-        <div class="profile-frame">
-          <img src="profile.jpg" alt="Jimboy S. Lilagan" class="profile-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div style="display:none; width:100%; height:100%; background:#e2e8f0; align-items:center; justify-content:center; font-weight:800; font-size:32px; color:#0b1f36;">JL</div>
-        </div>
+  <!-- ══ PROFESSIONAL SUMMARY ══ -->
+  <div class="section">
+    <div class="section-title">Professional Summary</div>
+    <hr class="section-divider">
+    <p class="summary-text">
+      Detail-oriented Computer Science student at Isabela State University specializing in the Data Mining track, with hands-on experience building AI-driven computer vision systems and full-stack web applications. Led development of <strong>FishCount</strong>, an in-browser fish stock estimation system using SSD-MobileNetV2 + ONNX Runtime Web achieving <strong>82.3% precision at 79 FPS</strong>. Eager to contribute strong Python, JavaScript, and machine learning skills in a professional internship or entry-level role.
+    </p>
+  </div>
 
-        <div class="header-details">
-          <div class="name-badge-row">
-            <div>
-              <h1 class="candidate-name">Jimboy S. Lilagan</h1>
-              <div class="candidate-title">
-                <span>Computer Vision Engineer</span>
-                <span class="title-separator">&bull;</span>
-                <span>Full-Stack Web Developer</span>
-                <span class="title-separator">&bull;</span>
-                <span>Data Mining Specialist</span>
-              </div>
-            </div>
-            <div>
-              <span class="ojt-pill">
-                <span class="ojt-dot"></span>
-                Available for OJT / Internship
-              </span>
-            </div>
-          </div>
+  <!-- ══ INTERNSHIP / EXPERIENCE ══ -->
+  <div class="section">
+    <div class="section-title">Experience</div>
+    <hr class="section-divider">
 
-          <div class="contact-strip">
-            <div class="contact-item">
-              <span>&#128231;</span>
-              <a href="mailto:lilaganjimboy24@gmail.com">lilaganjimboy24@gmail.com</a>
-            </div>
-            <div class="contact-item">
-              <span>&#128241;</span>
-              <a href="tel:+639979656825">+63 997 965 6825</a>
-            </div>
-            <div class="contact-item">
-              <span>&#128205;</span>
-              <span>Isabela, Philippines (Remote / On-Site)</span>
-            </div>
-            <div class="contact-item">
-              <span>&#127760;</span>
-              <a href="https://github.com/LilaganJimboy" target="_blank" rel="noreferrer">github.com/LilaganJimboy</a>
-            </div>
-          </div>
-        </div>
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Capstone Research Developer</span>
+        <span class="entry-date">2024 – Present</span>
       </div>
-    </header>
+      <div class="entry-org">Isabela State University – College of Computing Studies &nbsp;|&nbsp; <span class="entry-location">Echague, Isabela</span></div>
+      <ul class="entry-bullets">
+        <li>Designed and trained an SSD-MobileNetV2 object detection model on a custom dataset of <strong>47,117 annotated bounding boxes</strong> from aquarium tank video recordings.</li>
+        <li>Engineered FPN-Lite multi-scale feature fusion and 22 K-Means anchor boxes, raising precision from 60.9% to <strong>82.3%</strong> (+21.4 pp) and mAP@0.50 by +14.2 pp.</li>
+        <li>Deployed the model in-browser using <strong>ONNX Runtime Web</strong>, achieving zero cloud dependency and <strong>79.0 FPS</strong> (~12.6 ms GPU latency) on the final test set of 434 images.</li>
+        <li>Built a Python REST API backend with SQLite + MySQL dual-engine storage, role-based access control (RBAC), low-stock alerts, and camera telemetry dashboards.</li>
+      </ul>
+      <span class="entry-tech">Stack: Python, JavaScript, HTML/CSS, OpenCV, ONNX Runtime Web, SQLite, MySQL</span>
+    </div>
+  </div>
 
-    <!-- Key Empirical Thesis Achievements Ribbon (Unique to Jimboy's Research) -->
-    <div class="metric-ribbon">
-      <div class="metric-cell">
-        <div class="metric-val">82.3%</div>
-        <div class="metric-lbl">Model Precision (+21.4% gain)</div>
+  <!-- ══ FEATURED PROJECTS ══ -->
+  <div class="section">
+    <div class="section-title">Featured Projects</div>
+    <hr class="section-divider">
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">FishCount – AI-Based Fish Stock Estimation System</span>
+        <span class="entry-date">2024 – 2025</span>
       </div>
-      <div class="metric-cell">
-        <div class="metric-val">79.0 FPS</div>
-        <div class="metric-lbl">Inference Speed (~12.6ms)</div>
-      </div>
-      <div class="metric-cell">
-        <div class="metric-val">47,117</div>
-        <div class="metric-lbl">Box Annotations Dataset</div>
-      </div>
-      <div class="metric-cell">
-        <div class="metric-val">22 Anchors</div>
-        <div class="metric-lbl">FPN-Lite K-Means Fusion</div>
-      </div>
+      <div class="entry-org">Capstone Thesis &nbsp;|&nbsp; Co-author: Jaztine D. Maltizo</div>
+      <ul class="entry-bullets">
+        <li>Fine-tuned SSD-MobileNetV2 with FPN-Lite on 47,117 annotated bounding boxes; evaluated on 434 test images containing 8,649 ground-truth fish instances.</li>
+        <li>Achieved precision <strong>82.3%</strong>, mAP@0.50 improvement of +14.2 pp, and F1-score gain of +15.0 pp over baseline.</li>
+        <li>Packaged model as ONNX for client-side inference at <strong>79 FPS</strong>, eliminating cloud GPU costs entirely.</li>
+        <li>Integrated inventory management: low-stock alerts, fish species catalog, sales tracking, and RBAC admin panel.</li>
+      </ul>
+      <span class="entry-tech">Python · JavaScript · SSD-MobileNetV2 · ONNX Runtime Web · OpenCV · SQLite · MySQL</span>
     </div>
 
-    <!-- Hybrid Two-Column Resume Body -->
-    <div class="resume-body">
-
-      <!-- LEFT COLUMN: Summary, Major Projects, Education -->
-      <div class="main-column">
-
-        <!-- Career Summary -->
-        <section class="section-block">
-          <h2 class="section-heading">
-            <span class="section-heading-icon">&#9670;</span>
-            Career Objective &amp; Professional Profile
-          </h2>
-          <p class="summary-text">
-            High-achieving, research-driven graduating student in <strong>Computer Science (Data Mining Track)</strong> at <strong>Isabela State University</strong>, actively seeking an <strong>On-the-Job Training (OJT) / Internship placement</strong> or Junior Engineering role. Demonstrated end-to-end engineering excellence as the lead developer and researcher of <strong>FishCount</strong> &mdash; an automated, non-invasive optical fish stock estimation system pairing an optimized <strong>SSD-MobileNetV2</strong> deep learning detector with client-side <strong>ONNX Runtime Web</strong> edge inference and a full-stack web telemetry dashboard (Python, SQLite/MySQL, JavaScript). Grounded in clean modular architecture, empirical statistical model benchmarking, relational schema design, and ergonomic human-computer interaction (HCI).
-          </p>
-        </section>
-
-        <!-- Capstone & Engineering Projects -->
-        <section class="section-block">
-          <h2 class="section-heading">
-            <span class="section-heading-icon">&#9670;</span>
-            Key Capstone &amp; Software Projects
-          </h2>
-
-          <!-- Project 1 -->
-          <article class="entry-card">
-            <div class="entry-title-bar">
-              <span class="entry-headline">FishCount: AI-Based Fish Stock Estimation System</span>
-              <span class="entry-badge">Edge AI &bull; Computer Vision</span>
-            </div>
-            <div class="entry-subline">Lead AI Developer &amp; Researcher &bull; Undergraduate Capstone Thesis (ISU)</div>
-            <ul class="entry-points">
-              <li>
-                Engineered an offline-capable, non-invasive computer vision system for commercial aquarium retailers, mitigating manual counting fatigue and reducing handling stress on sensitive aquatic livestock.
-              </li>
-              <li>
-                Optimized an <strong>SSD-MobileNetV2</strong> architecture by integrating <strong>FPN-Lite multi-scale feature fusion</strong> and <strong>22 K-Means anchor box clusters</strong>, trained on an authentic aquarium dataset comprising <strong>47,117 box annotations</strong>.
-              </li>
-              <li>
-                Achieved <strong>82.3% precision</strong> (+21.4 percentage points over baseline), improved <strong>mAP@0.50 by 14.2 points</strong>, and increased <strong>F1-score by 15.0 points</strong> across 434 final test images (8,649 ground-truth fish).
-              </li>
-              <li>
-                Exported the deep learning pipeline to <strong>ONNX format</strong> and deployed client-side in-browser edge detection using <strong>ONNX Runtime Web</strong>, attaining real-time throughput of <strong>79.0 FPS</strong> (~12.6ms GPU latency) with zero cloud network dependency.
-              </li>
-            </ul>
-          </article>
-
-          <!-- Project 2 -->
-          <article class="entry-card">
-            <div class="entry-title-bar">
-              <span class="entry-headline">FishCount: Inventory Management &amp; Telemetry Web Platform</span>
-              <span class="entry-badge">Full-Stack Web &bull; Python &bull; SQL</span>
-            </div>
-            <div class="entry-subline">Full-Stack Systems Developer &bull; Capstone Production System</div>
-            <ul class="entry-points">
-              <li>
-                Constructed a multi-page web management platform providing real-time tank livestock monitoring, automatic low-stock notifications, camera telemetry logging, and commercial sales tracking.
-              </li>
-              <li>
-                Architected dual-engine database persistence seamlessly toggleable between lightweight embedded <strong>SQLite</strong> (<code>fish_count.db</code>) and enterprise <strong>MySQL</strong> with clean relational migrations and relational integrity.
-              </li>
-              <li>
-                Developed an offline evaluation verification tool (<code>import_evaluation.py</code>) that cryptographically cross-validates precision, recall, and F1 against raw TP/FP/FN confusion matrices prior to dashboard storage.
-              </li>
-              <li>
-                Implemented secure Role-Based Access Control (RBAC) with hashed session authentication separating Administrator configuration from Client retail operations.
-              </li>
-            </ul>
-          </article>
-
-          <!-- Project 3 -->
-          <article class="entry-card">
-            <div class="entry-title-bar">
-              <span class="entry-headline">Machine Learning &amp; Algorithmic Software Laboratory Suite</span>
-              <span class="entry-badge">Academic Systems &bull; OOP</span>
-            </div>
-            <div class="entry-subline">Student Developer &bull; Isabela State University Coursework &amp; GitHub Labs</div>
-            <ul class="entry-points">
-              <li>
-                Built specialized machine learning and data mining experiments implementing feature extraction, regression modeling, and performance evaluation metrics across structured datasets.
-              </li>
-              <li>
-                Authored object-oriented systems and regular expression parsing engines (<code>Lilagan-RegEx-OOP</code>) adhering to SOLID principles and modular design patterns.
-              </li>
-              <li>
-                Leveraged Git &amp; GitHub for version control, issue tracking, feature branching, and collaborative peer code reviews.
-              </li>
-            </ul>
-          </article>
-        </section>
-
-        <!-- Education Section -->
-        <section class="section-block">
-          <h2 class="section-heading">
-            <span class="section-heading-icon">&#9670;</span>
-            Education &amp; Academic Foundation
-          </h2>
-          <div class="edu-block">
-            <div style="display:flex; justify-content:space-between; align-items:baseline;">
-              <div class="edu-degree">Bachelor of Science in Computer Science (BSCS)</div>
-              <span style="font-size:10.5px; font-weight:700; color:var(--ocean-700);">Expected 2026/2027</span>
-            </div>
-            <div class="edu-school">Isabela State University &mdash; Echague, Isabela</div>
-            <div class="edu-info">
-              <div><strong>Track:</strong> Data Mining Track (College of Computing Studies, Information &amp; Communication Technology)</div>
-              <div><strong>Capstone Thesis:</strong> <em>AI-Based Fish Stock Estimation System for Aquarium Business (FishCount)</em></div>
-              <div style="margin-top:2px;"><strong>Relevant Coursework:</strong> Data Mining, Artificial Intelligence &amp; Computer Vision, Software Engineering, Database Systems (SQL), Operating Systems, Human-Computer Interaction (HCI), Object-Oriented Programming, Data Structures &amp; Algorithms.</div>
-            </div>
-          </div>
-        </section>
-
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">RegEx & OOP Laboratory Exercises</span>
+        <span class="entry-date">2023 – 2024</span>
       </div>
-
-      <!-- RIGHT COLUMN: Skills Matrix, Certifications, Strengths Sidebar -->
-      <aside class="side-column">
-
-        <!-- Skills Matrix -->
-        <section class="section-block">
-          <h2 class="section-heading">
-            <span class="section-heading-icon">&#9670;</span>
-            Technical Skills
-          </h2>
-
-          <div class="skill-group">
-            <div class="skill-group-name">Languages</div>
-            <div class="skill-pills">
-              <span class="pill highlight">Python</span>
-              <span class="pill highlight">JavaScript (ES6+)</span>
-              <span class="pill">SQL</span>
-              <span class="pill">Java</span>
-              <span class="pill">HTML5 / CSS3</span>
-              <span class="pill">C/C++</span>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-group-name">Computer Vision &amp; AI</div>
-            <div class="skill-pills">
-              <span class="pill highlight">SSD-MobileNetV2</span>
-              <span class="pill highlight">ONNX Runtime Web</span>
-              <span class="pill highlight">FPN-Lite Feature Fusion</span>
-              <span class="pill">K-Means Anchors</span>
-              <span class="pill">Edge Detection</span>
-              <span class="pill">IoU Matching</span>
-              <span class="pill">Model Quantization</span>
-              <span class="pill">OpenCV</span>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-group-name">Web &amp; Backend Architecture</div>
-            <div class="skill-pills">
-              <span class="pill highlight">Python HTTP / REST APIs</span>
-              <span class="pill">Full-Stack Development</span>
-              <span class="pill">Responsive UI/UX</span>
-              <span class="pill">DOM Manipulation</span>
-              <span class="pill">Single Page Architecture</span>
-              <span class="pill">Session Auth &amp; RBAC</span>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-group-name">Databases &amp; Storage</div>
-            <div class="skill-pills">
-              <span class="pill highlight">SQLite (Embedded)</span>
-              <span class="pill highlight">MySQL (Relational)</span>
-              <span class="pill">Schema Normalization</span>
-              <span class="pill">Database Migrations</span>
-              <span class="pill">Dual-Engine Switching</span>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-group-name">Data Mining &amp; Analytics</div>
-            <div class="skill-pills">
-              <span class="pill highlight">NumPy</span>
-              <span class="pill highlight">Pandas</span>
-              <span class="pill">Confusion Matrices</span>
-              <span class="pill">mAP@0.50 Benchmark</span>
-              <span class="pill">Precision / Recall / F1</span>
-              <span class="pill">Error Telemetry</span>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-group-name">Tools &amp; Workflows</div>
-            <div class="skill-pills">
-              <span class="pill">Git &amp; GitHub</span>
-              <span class="pill">VS Code</span>
-              <span class="pill">Postman</span>
-              <span class="pill">PowerShell</span>
-              <span class="pill">Linux CLI</span>
-              <span class="pill">unittest</span>
-            </div>
-          </div>
-        </section>
-
-        <!-- Certifications -->
-        <section class="section-block">
-          <h2 class="section-heading">
-            <span class="section-heading-icon">&#9670;</span>
-            Certifications
-          </h2>
-
-          <div class="cert-badge-card">
-            <div class="cert-card-title">Overview of AI</div>
-            <div class="cert-card-issuer">Huawei (Huawei ICT Academy)</div>
-            <div class="cert-card-meta">AI &bull; Deep Learning &bull; Computer Vision</div>
-          </div>
-
-          <div class="cert-badge-card">
-            <div class="cert-card-title">Python Programming Basics</div>
-            <div class="cert-card-issuer">Huawei (Huawei ICT Academy)</div>
-            <div class="cert-card-meta">Core Syntax &bull; OOP &bull; Algorithms</div>
-          </div>
-        </section>
-
-        <!-- Professional Strengths -->
-        <section class="section-block">
-          <h2 class="section-heading">
-            <span class="section-heading-icon">&#9670;</span>
-            Key Strengths
-          </h2>
-
-          <div class="attr-row">
-            <strong>Analytical Rigor:</strong>
-            <span>Deep focus on empirical benchmarking, IoU precision, and error telemetry.</span>
-          </div>
-
-          <div class="attr-row">
-            <strong>System Reliability:</strong>
-            <span>Emphasis on clean separation of concerns, test coverage, and offline edge execution.</span>
-          </div>
-
-          <div class="attr-row">
-            <strong>Proactive Collaboration:</strong>
-            <span>Receptive to technical feedback, fast learner, and dependable team player.</span>
-          </div>
-        </section>
-
-      </aside>
-
+      <div class="entry-org">Academic Project &nbsp;|&nbsp; <a href="https://github.com/LilaganJimboy/Lilagan-RegEx-OOP" target="_blank" style="color:#1e3a5f;">github.com/LilaganJimboy/Lilagan-RegEx-OOP</a></div>
+      <ul class="entry-bullets">
+        <li>Implemented pattern-matching utilities and OOP design patterns (inheritance, polymorphism, encapsulation) in Python and Java.</li>
+        <li>Covered regex tokenization, greedy/lazy quantifiers, lookaheads, and class hierarchies with unit tests.</li>
+      </ul>
+      <span class="entry-tech">Python · Java · OOP · Regular Expressions</span>
     </div>
 
-  </main>
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Machine Learning Activity Labs (MLabAct)</span>
+        <span class="entry-date">2024</span>
+      </div>
+      <div class="entry-org">Academic Project &nbsp;|&nbsp; <a href="https://github.com/LilaganJimboy/MLabAct" target="_blank" style="color:#1e3a5f;">github.com/LilaganJimboy/MLabAct</a></div>
+      <ul class="entry-bullets">
+        <li>Completed a series of supervised and unsupervised learning labs: linear regression, k-NN, k-Means clustering, decision trees, and confusion matrix evaluation.</li>
+        <li>Applied NumPy and Pandas for data wrangling, feature engineering, and visualization of precision/recall/F1 metrics.</li>
+      </ul>
+      <span class="entry-tech">Python · NumPy · Pandas · scikit-learn · Matplotlib</span>
+    </div>
+  </div>
 
-  <!-- Client-side PDF Generation Engine -->
-  <script src="html2pdf.bundle.min.js"></script>
-  <script>
-    if (typeof html2pdf === 'undefined') {
-      const s = document.createElement('script');
-      s.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
-      document.head.appendChild(s);
-    }
+  <!-- ══ EDUCATION ══ -->
+  <div class="section">
+    <div class="section-title">Education</div>
+    <hr class="section-divider">
 
-    function openExportModal() {
-      const modal = document.getElementById('exportModal');
-      if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-    }
+    <div class="entry">
+      <div class="edu-row">
+        <span class="edu-school">Isabela State University</span>
+        <span class="edu-date">2023 – Expected 2026 / 2027</span>
+      </div>
+      <div class="edu-degree">Bachelor of Science in Computer Science &nbsp;–&nbsp; Data Mining Track</div>
+      <div class="edu-detail">Echague, Isabela, Philippines</div>
+      <div class="edu-detail" style="margin-top:4px;">
+        <strong>Capstone Thesis:</strong> <em>AI-Based Fish Stock Estimation System for Aquarium Business</em> (FishCount) — Co-authored with Jaztine D. Maltizo
+      </div>
+    </div>
+  </div>
 
-    function closeExportModal() {
-      const modal = document.getElementById('exportModal');
-      if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    }
+  <!-- ══ CERTIFICATIONS ══ -->
+  <div class="section">
+    <div class="section-title">Certifications</div>
+    <hr class="section-divider">
+    <ul class="cert-list">
+      <li><strong>Overview of Artificial Intelligence</strong> &mdash; Huawei ICT Academy</li>
+      <li><strong>Python Programming Basics</strong> &mdash; Huawei ICT Academy</li>
+    </ul>
+  </div>
 
-    function handleBackdropClick(event) {
-      if (event.target === document.getElementById('exportModal')) {
-        closeExportModal();
-      }
-    }
+  <!-- ══ TECHNICAL SKILLS ══ -->
+  <div class="section">
+    <div class="section-title">Technical Skills</div>
+    <hr class="section-divider">
+    <table class="skills-table">
+      <tr>
+        <td class="skill-cat">Languages</td>
+        <td class="skill-items">Python, JavaScript (ES6+), SQL, Java, HTML5, CSS3, C/C++</td>
+      </tr>
+      <tr>
+        <td class="skill-cat">AI &amp; Computer Vision</td>
+        <td class="skill-items">SSD-MobileNetV2, ONNX Runtime Web, FPN-Lite, K-Means Anchors, OpenCV, IoU, mAP</td>
+      </tr>
+      <tr>
+        <td class="skill-cat">Web &amp; Backend</td>
+        <td class="skill-items">Python HTTP Server, RESTful APIs, Responsive UI, DOM Manipulation, Session Auth, RBAC</td>
+      </tr>
+      <tr>
+        <td class="skill-cat">Databases</td>
+        <td class="skill-items">SQLite, MySQL, Schema Design, Normalization, Migrations</td>
+      </tr>
+      <tr>
+        <td class="skill-cat">Data Mining</td>
+        <td class="skill-items">NumPy, Pandas, scikit-learn, Confusion Matrices, Precision / Recall / F1, Clustering</td>
+      </tr>
+      <tr>
+        <td class="skill-cat">Tools &amp; Workflow</td>
+        <td class="skill-items">Git, GitHub, VS Code, Postman, PowerShell, Linux CLI, unittest</td>
+      </tr>
+    </table>
+  </div>
 
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') {
-        closeExportModal();
-      }
-    });
+</div><!-- /paper -->
 
-    function handlePrint() {
-      closeExportModal();
-      setTimeout(function() {
-        window.print();
-      }, 250);
-    }
+<script src="html2pdf.bundle.min.js"></script>
+<script>
+function exportPDF() {
+  var el = document.querySelector('.paper');
+  var btn = document.getElementById('pdf-btn');
+  btn.style.display = 'none';
+  html2pdf().set({
+    margin: 0,
+    filename: 'Jimboy_Lilagan_Resume.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2, useCORS: true },
+    jsPDF: { unit: 'pt', format: 'letter', orientation: 'portrait' }
+  }).from(el).save().then(function(){ btn.style.display = 'flex'; });
+}
+</script>
 
-    async function handleSavePdf() {
-      const btn = document.getElementById('btnSavePdf');
-      const container = document.getElementById('resumeDoc');
-      if (!container) return;
-
-      const originalHtml = btn.innerHTML;
-      btn.disabled = true;
-      btn.style.opacity = '0.7';
-      btn.innerHTML = '<span class="option-icon">&#9203;</span><div><div class="option-head">Rendering PDF...</div><div class="option-sub">Generating Jimboy S. Lilagan Resume PDF...</div></div>';
-
-      try {
-        container.classList.add('pdf-render-mode');
-
-        const opt = {
-          margin: [6, 6, 6, 6],
-          filename: 'Jimboy_S_Lilagan_Executive_Resume.pdf',
-          image: { type: 'jpeg', quality: 0.98 },
-          html2canvas: { scale: 2, useCORS: true, letterRendering: true, scrollY: 0 },
-          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-          pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
-        };
-
-        if (typeof html2pdf !== 'undefined') {
-          await html2pdf().set(opt).from(container).save();
-          closeExportModal();
-        } else {
-          closeExportModal();
-          alert("Direct PDF generator is loading. Opening print dialog: please change Destination to 'Save as PDF'.");
-          window.print();
-        }
-      } catch (err) {
-        console.error('PDF export error:', err);
-        closeExportModal();
-        alert("Direct PDF export encountered an error. Opening print dialog: please change Destination to 'Save as PDF'.");
-        window.print();
-      } finally {
-        container.classList.remove('pdf-render-mode');
-        btn.disabled = false;
-        btn.style.opacity = '1';
-        btn.innerHTML = originalHtml;
-      }
-    }
-  </script>
 </body>
 </html>

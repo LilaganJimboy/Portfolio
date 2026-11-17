@@ -1,21 +1,842 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-<!-- This site is hosted on Netlify. Anyone can build and deploy a site
-     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=98e2d34b-731a-45c8-bfd4-8c9a9262dce4
-     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f172a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='16 18 22 12 16 6'/><polyline points='8 6 2 12 8 18'/></svg>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portfolio of a Software Engineer & Web Developer with expertise in UI/UX Design and AI / Data Science." />
-    <title>Portfolio | Software Engineer & Web Developer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="assets/index-CmxtEYlE.js"></script>
-    <link rel="stylesheet" crossorigin href="assets/index-CB6cY_Nz.css">
-  </head>
-  <body class="bg-slate-50 text-slate-900 min-h-screen">
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jimboy S. Lilagan – Computer Vision Engineer & Full-Stack Developer. Creator of FishCount, an AI-based fish stock estimation system built with SSD-MobileNetV2 and ONNX Runtime Web.">
+  <title>Jimboy Lilagan | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ━━━━━━━━━━ RESET & BASE ━━━━━━━━━━ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --bg: #0a1628;
+      --bg2: #0f2040;
+      --bg3: #162b52;
+      --card: #12213d;
+      --accent: #00c9a7;
+      --accent2: #00a3ff;
+      --accent-dim: rgba(0,201,167,0.12);
+      --text: #e8f0fe;
+      --text-muted: #8ba3c7;
+      --border: rgba(0,201,167,0.2);
+      --nav-height: 64px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ━━━━━━━━━━ SCROLLBAR ━━━━━━━━━━ */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+    /* ━━━━━━━━━━ NAV ━━━━━━━━━━ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      background: rgba(10,22,40,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+    }
+    .nav-logo {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.5px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .nav-logo span { color: var(--text); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); text-decoration: none; }
+    .nav-cta {
+      background: var(--accent);
+      color: #0a1628 !important;
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-weight: 700 !important;
+      font-size: 13px !important;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.85; text-decoration: none !important; }
+
+    /* Hamburger (mobile) */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-height);
+      left: 0; right: 0;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 32px;
+      flex-direction: column;
+      gap: 20px;
+      z-index: 999;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--text-muted); font-size: 15px; font-weight: 500; }
+    .mobile-menu a:hover { color: var(--accent); }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    /* ━━━━━━━━━━ SECTION WRAPPER ━━━━━━━━━━ */
+    section { padding: 90px 0; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 48px;
+      line-height: 1.2;
+    }
+    .section-title span { color: var(--accent); }
+
+    /* ━━━━━━━━━━ HERO ━━━━━━━━━━ */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: var(--nav-height);
+      background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(0,163,255,0.08) 0%, transparent 60%),
+                  radial-gradient(ellipse 60% 40% at 20% 80%, rgba(0,201,167,0.06) 0%, transparent 50%),
+                  var(--bg);
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 60px;
+      align-items: center;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .hero-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 1.5px;
+      margin-bottom: 16px;
+    }
+    .hero-name {
+      font-size: clamp(38px, 6vw, 62px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+    .hero-name .last { color: var(--accent); }
+    .hero-role {
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+    .hero-role strong { color: var(--accent2); font-weight: 600; }
+    .hero-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+    .hero-desc strong { color: var(--text); }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #0a1628;
+      padding: 13px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(0,201,167,0.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(0,201,167,0.45); text-decoration: none; }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      padding: 13px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+    /* Hero photo */
+    .hero-photo-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-photo-ring {
+      position: relative;
+      width: 300px;
+      height: 300px;
+    }
+    .hero-photo-ring::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: conic-gradient(var(--accent), var(--accent2), var(--accent));
+      animation: spin 6s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .hero-photo-ring img {
+      position: absolute;
+      inset: 4px;
+      width: calc(100% - 8px);
+      height: calc(100% - 8px);
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      background: var(--bg3);
+    }
+
+    /* Stat badges */
+    .hero-stats {
+      display: flex;
+      gap: 20px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+    .stat-badge {
+      background: var(--accent-dim);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 16px;
+      text-align: center;
+    }
+    .stat-num { font-size: 20px; font-weight: 800; color: var(--accent); font-family: 'JetBrains Mono', monospace; }
+    .stat-label { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+    @media (max-width: 860px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-photo-wrap { order: -1; }
+      .hero-photo-ring { width: 200px; height: 200px; }
+    }
+
+    /* ━━━━━━━━━━ ABOUT ━━━━━━━━━━ */
+    #about { background: var(--bg2); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .about-text p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .about-text p strong { color: var(--text); }
+    .about-highlights { display: flex; flex-direction: column; gap: 16px; }
+    .highlight-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: border-color 0.2s;
+    }
+    .highlight-card:hover { border-color: var(--accent); }
+    .highlight-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .highlight-title { font-weight: 600; font-size: 14px; color: var(--text); margin-bottom: 4px; }
+    .highlight-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 36px; }
+    }
+
+    /* ━━━━━━━━━━ PROJECTS ━━━━━━━━━━ */
+    #projects { background: var(--bg); }
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-bottom: 36px;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .project-card.reverse { direction: rtl; }
+    .project-card.reverse > * { direction: ltr; }
+
+    .project-screenshots {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 2px;
+      background: #000;
+      min-height: 280px;
+    }
+    .project-screenshots img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.2s;
+    }
+    .project-screenshots img:hover { opacity: 0.85; }
+    .project-screenshots .span2 { grid-column: span 2; }
+
+    .project-info {
+      padding: 32px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .project-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .project-title { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 12px; line-height: 1.3; }
+    .project-desc { font-size: 14px; color: var(--text-muted); line-height: 1.75; margin-bottom: 20px; }
+    .project-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .metric {
+      background: var(--accent-dim);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+    }
+    .metric-val { font-size: 17px; font-weight: 800; color: var(--accent); font-family: 'JetBrains Mono', monospace; }
+    .metric-desc { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+    .tech-tag {
+      background: rgba(0,163,255,0.1);
+      border: 1px solid rgba(0,163,255,0.25);
+      color: var(--accent2);
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+    .project-links { display: flex; gap: 12px; }
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 6px;
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .link-btn:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+    /* Lab projects mini-grid */
+    .mini-projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-top: 12px; }
+    .mini-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 24px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .mini-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .mini-icon { font-size: 24px; margin-bottom: 10px; }
+    .mini-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+    .mini-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; margin-bottom: 14px; }
+    .mini-link { font-size: 12px; font-weight: 600; color: var(--accent); }
+
+    @media (max-width: 860px) {
+      .project-card { grid-template-columns: 1fr; }
+      .project-card.reverse { direction: ltr; }
+      .project-screenshots { min-height: 200px; }
+    }
+
+    /* ━━━━━━━━━━ SKILLS ━━━━━━━━━━ */
+    #skills { background: var(--bg2); }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+    .skill-group {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      transition: border-color 0.2s;
+    }
+    .skill-group:hover { border-color: var(--accent); }
+    .skill-group-icon { font-size: 26px; margin-bottom: 10px; }
+    .skill-group-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 12px; }
+    .skill-items-list { display: flex; flex-wrap: wrap; gap: 7px; }
+    .skill-pill {
+      background: var(--accent-dim);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 11.5px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    /* ━━━━━━━━━━ CERTIFICATIONS ━━━━━━━━━━ */
+    #certifications { background: var(--bg); }
+    .certs-row { display: flex; gap: 24px; flex-wrap: wrap; }
+    .cert-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex: 1;
+      min-width: 280px;
+      transition: border-color 0.2s;
+    }
+    .cert-card:hover { border-color: var(--accent); }
+    .cert-badge { width: 56px; height: 56px; flex-shrink: 0; }
+    .cert-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .cert-issuer { font-size: 13px; color: var(--text-muted); }
+
+    /* ━━━━━━━━━━ CONTACT ━━━━━━━━━━ */
+    #contact { background: var(--bg2); }
+    .contact-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px;
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .contact-box p { color: var(--text-muted); font-size: 15px; line-height: 1.7; margin-bottom: 32px; }
+    .contact-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 600;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    .contact-link.primary { background: var(--accent); color: #0a1628; border-color: var(--accent); }
+    .contact-link.primary:hover { opacity: 0.85; color: #0a1628; }
+
+    /* ━━━━━━━━━━ FOOTER ━━━━━━━━━━ */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 24px 32px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    footer a { color: var(--accent); }
+
+    /* ━━━━━━━━━━ FADE-IN ANIMATION ━━━━━━━━━━ */
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-logo">&lt;<span>JL</span>/&gt;</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="resume.html" class="nav-cta">Resume ↗</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#projects" onclick="toggleMenu()">Projects</a>
+  <a href="#skills" onclick="toggleMenu()">Skills</a>
+  <a href="#certifications" onclick="toggleMenu()">Certs</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="resume.html">Resume ↗</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">&gt;_ hello, world — I'm</div>
+      <h1 class="hero-name">Jimboy S. <span class="last">Lilagan</span></h1>
+      <p class="hero-role"><strong>Computer Vision</strong> Engineer &amp; Full-Stack Developer</p>
+      <p class="hero-desc">
+        B.S. Computer Science student at <strong>Isabela State University</strong> (Data Mining Track), building AI-driven systems that solve real-world problems. Creator of <strong>FishCount</strong> — an in-browser fish detection engine running at 79 FPS with zero cloud dependency.
+      </p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary">View My Work ↓</a>
+        <a href="resume.html" class="btn-secondary">Download Resume</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-badge">
+          <div class="stat-num">82.3%</div>
+          <div class="stat-label">Model Precision</div>
+        </div>
+        <div class="stat-badge">
+          <div class="stat-num">79 FPS</div>
+          <div class="stat-label">Inference Speed</div>
+        </div>
+        <div class="stat-badge">
+          <div class="stat-num">47K+</div>
+          <div class="stat-label">Annotated Boxes</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-ring">
+        <img src="profile.jpg" alt="Jimboy S. Lilagan">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT ══ -->
+<section id="about">
+  <div class="container fade-in">
+    <div class="section-label">// who I am</div>
+    <h2 class="section-title">About <span>Me</span></h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a final-year <strong>Computer Science student</strong> at Isabela State University, Echague, Isabela, pursuing a specialization in <strong>Data Mining</strong>. My work lives at the intersection of machine learning, computer vision, and practical web engineering.
+        </p>
+        <p>
+          My capstone project, <strong>FishCount</strong>, is an AI-powered fish stock estimation system co-developed with Jaztine D. Maltizo. It uses a custom-trained <strong>SSD-MobileNetV2</strong> model with FPN-Lite feature fusion and 22 K-Means anchor boxes — deployed entirely in the browser via <strong>ONNX Runtime Web</strong>, requiring no cloud GPU infrastructure.
+        </p>
+        <p>
+          Beyond the thesis, I enjoy building full-stack systems with clean architecture: RESTful Python backends, normalized relational databases, and responsive UIs. I'm actively seeking an <strong>OJT / internship</strong> opportunity to bring these skills to a professional team.
+        </p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <div class="highlight-icon">🎓</div>
+          <div>
+            <div class="highlight-title">Isabela State University</div>
+            <div class="highlight-desc">B.S. Computer Science – Data Mining Track<br>Echague, Isabela · 2023 – Expected 2026/2027</div>
+          </div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">🧠</div>
+          <div>
+            <div class="highlight-title">AI & Computer Vision</div>
+            <div class="highlight-desc">SSD-MobileNetV2, ONNX Runtime Web, FPN-Lite, OpenCV, K-Means anchors, mAP evaluation</div>
+          </div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">🌐</div>
+          <div>
+            <div class="highlight-title">Full-Stack Web Development</div>
+            <div class="highlight-desc">Python REST APIs, SQLite + MySQL, JavaScript ES6+, RBAC, responsive HTML/CSS</div>
+          </div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">📍</div>
+          <div>
+            <div class="highlight-title">Currently Available For</div>
+            <div class="highlight-desc">OJT / Internship · Entry-Level Roles · Collaboration on open-source projects</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROJECTS ══ -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label fade-in">// what I've built</div>
+    <h2 class="section-title fade-in">Featured <span>Projects</span></h2>
+
+    <!-- FishCount -->
+    <div class="project-card fade-in">
+      <div class="project-screenshots">
+        <img src="fishcount/dashboard_ui.png" alt="FishCount Dashboard" class="span2">
+        <img src="fishcount/camera_detection_ui.png" alt="Camera Detection">
+        <img src="fishcount/ai_pipeline.png" alt="AI Pipeline">
+      </div>
+      <div class="project-info">
+        <div class="project-label">Capstone Thesis · 2024–2025</div>
+        <h3 class="project-title">FishCount — AI-Based Fish Stock Estimation</h3>
+        <p class="project-desc">
+          In-browser fish detection and inventory management system. A custom-trained SSD-MobileNetV2 model with FPN-Lite and 22 K-Means anchor boxes runs live via ONNX Runtime Web — zero cloud GPU required. The web platform covers RBAC, low-stock alerts, species catalog, sales tracking, and camera telemetry.
+        </p>
+        <div class="project-metrics">
+          <div class="metric">
+            <div class="metric-val">82.3%</div>
+            <div class="metric-desc">Precision</div>
+          </div>
+          <div class="metric">
+            <div class="metric-val">79 FPS</div>
+            <div class="metric-desc">Inference</div>
+          </div>
+          <div class="metric">
+            <div class="metric-val">+21.4pp</div>
+            <div class="metric-desc">vs Baseline</div>
+          </div>
+        </div>
+        <div class="tech-tags">
+          <span class="tech-tag">SSD-MobileNetV2</span>
+          <span class="tech-tag">ONNX Runtime Web</span>
+          <span class="tech-tag">FPN-Lite</span>
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">SQLite</span>
+          <span class="tech-tag">MySQL</span>
+          <span class="tech-tag">OpenCV</span>
+          <span class="tech-tag">JavaScript</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/LilaganJimboy" target="_blank" class="link-btn">🐙 GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lab projects -->
+    <div class="section-label fade-in" style="margin-top:48px;">// academic work</div>
+    <div class="mini-projects fade-in">
+      <div class="mini-card">
+        <div class="mini-icon">🔤</div>
+        <div class="mini-title">RegEx & OOP Laboratory</div>
+        <div class="mini-desc">Pattern-matching utilities and OOP design patterns in Python and Java — inheritance, polymorphism, encapsulation, regex tokenization, greedy/lazy quantifiers, lookaheads, and unit tests.</div>
+        <a href="https://github.com/LilaganJimboy/Lilagan-RegEx-OOP" target="_blank" class="mini-link">View on GitHub ↗</a>
+      </div>
+      <div class="mini-card">
+        <div class="mini-icon">📊</div>
+        <div class="mini-title">ML Activity Labs (MLabAct)</div>
+        <div class="mini-desc">Series of supervised and unsupervised learning labs: linear regression, k-NN, k-Means clustering, decision trees, and confusion matrix evaluation using NumPy, Pandas, and scikit-learn.</div>
+        <a href="https://github.com/LilaganJimboy/MLabAct" target="_blank" class="mini-link">View on GitHub ↗</a>
+      </div>
+      <div class="mini-card">
+        <div class="mini-icon">⚡</div>
+        <div class="mini-title">Argument Laboratory</div>
+        <div class="mini-desc">Exercises on logical argumentation, formal proof structures, and propositional logic — bridging mathematical foundations with computational problem solving.</div>
+        <a href="https://github.com/LilaganJimboy/Lilagan-Jimboy-S-Argument-Lab" target="_blank" class="mini-link">View on GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SKILLS ══ -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label fade-in">// my toolkit</div>
+    <h2 class="section-title fade-in">Technical <span>Skills</span></h2>
+    <div class="skills-grid fade-in">
+      <div class="skill-group">
+        <div class="skill-group-icon">💻</div>
+        <div class="skill-group-title">Languages</div>
+        <div class="skill-items-list">
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">SQL</span>
+          <span class="skill-pill">Java</span>
+          <span class="skill-pill">HTML5</span>
+          <span class="skill-pill">CSS3</span>
+          <span class="skill-pill">C/C++</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-icon">👁️</div>
+        <div class="skill-group-title">AI & Computer Vision</div>
+        <div class="skill-items-list">
+          <span class="skill-pill">SSD-MobileNetV2</span>
+          <span class="skill-pill">ONNX Runtime Web</span>
+          <span class="skill-pill">FPN-Lite</span>
+          <span class="skill-pill">OpenCV</span>
+          <span class="skill-pill">K-Means</span>
+          <span class="skill-pill">IoU / mAP</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-icon">🌐</div>
+        <div class="skill-group-title">Web & Backend</div>
+        <div class="skill-items-list">
+          <span class="skill-pill">Python HTTP Server</span>
+          <span class="skill-pill">REST APIs</span>
+          <span class="skill-pill">RBAC</span>
+          <span class="skill-pill">Session Auth</span>
+          <span class="skill-pill">Responsive UI</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-icon">🗄️</div>
+        <div class="skill-group-title">Databases</div>
+        <div class="skill-items-list">
+          <span class="skill-pill">SQLite</span>
+          <span class="skill-pill">MySQL</span>
+          <span class="skill-pill">Schema Design</span>
+          <span class="skill-pill">Normalization</span>
+          <span class="skill-pill">Migrations</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-icon">📈</div>
+        <div class="skill-group-title">Data Mining</div>
+        <div class="skill-items-list">
+          <span class="skill-pill">NumPy</span>
+          <span class="skill-pill">Pandas</span>
+          <span class="skill-pill">scikit-learn</span>
+          <span class="skill-pill">Precision/Recall</span>
+          <span class="skill-pill">F1 / mAP</span>
+          <span class="skill-pill">Clustering</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-icon">🛠️</div>
+        <div class="skill-group-title">Tools & Workflow</div>
+        <div class="skill-items-list">
+          <span class="skill-pill">Git</span>
+          <span class="skill-pill">GitHub</span>
+          <span class="skill-pill">VS Code</span>
+          <span class="skill-pill">Postman</span>
+          <span class="skill-pill">Linux CLI</span>
+          <span class="skill-pill">unittest</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CERTIFICATIONS ══ -->
+<section id="certifications">
+  <div class="container">
+    <div class="section-label fade-in">// credentials</div>
+    <h2 class="section-title fade-in">Certifi<span>cations</span></h2>
+    <div class="certs-row fade-in">
+      <div class="cert-card">
+        <img class="cert-badge" src="certifications/huawei-medal.svg" alt="Huawei ICT Badge">
+        <div>
+          <div class="cert-title">Overview of Artificial Intelligence</div>
+          <div class="cert-issuer">Huawei ICT Academy</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <img class="cert-badge" src="certifications/huawei-medal.svg" alt="Huawei ICT Badge">
+        <div>
+          <div class="cert-title">Python Programming Basics</div>
+          <div class="cert-issuer">Huawei ICT Academy</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact">
+  <div class="container fade-in">
+    <div class="section-label">// get in touch</div>
+    <h2 class="section-title">Let's <span>Connect</span></h2>
+    <div class="contact-box">
+      <p>
+        I'm actively looking for <strong style="color:var(--text)">OJT opportunities, internships, and entry-level roles</strong> in computer vision, full-stack development, or data engineering. Feel free to reach out — I'd love to collaborate!
+      </p>
+      <div class="contact-links">
+        <a href="mailto:lilaganjimboy24@gmail.com" class="contact-link primary">📧 Email Me</a>
+        <a href="https://github.com/LilaganJimboy" target="_blank" class="contact-link">🐙 GitHub</a>
+        <a href="resume.html" class="contact-link">📄 Resume</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <p>Built by <a href="https://github.com/LilaganJimboy">Jimboy S. Lilagan</a> · Isabela State University · 2025</p>
+</footer>
+
+<script>
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // Scroll-based fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Active nav link highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 90) cur = s.id; });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--accent)' : '';
+    });
+  });
+</script>
+</body>
 </html>
