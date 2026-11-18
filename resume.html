@@ -55,37 +55,49 @@
 
     /* ── Header ── */
     .header {
-      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 20px;
       padding-bottom: 10px;
       border-bottom: 2px solid #1e3a5f;
       margin-bottom: 10px;
     }
+    .photo {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 3px solid #1e3a5f;
+      flex-shrink: 0;
+    }
+    .header-text { flex: 1; min-width: 0; }
     .name {
-      font-size: 21pt;
+      font-size: 20pt;
       font-weight: 700;
       color: #1e3a5f;
       letter-spacing: 0.5px;
       line-height: 1.1;
     }
     .title {
-      font-size: 10pt;
+      font-size: 9.5pt;
       font-weight: 600;
       color: #4a6fa5;
-      margin: 3px 0 6px;
+      margin: 2px 0 5px;
     }
     .contact-strip {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       flex-wrap: wrap;
-      column-gap: 18px;
-      row-gap: 3px;
-      font-size: 9.5pt;
+      column-gap: 14px;
+      row-gap: 2px;
+      font-size: 9pt;
       color: #333;
     }
     .contact-strip a { color: #1e3a5f; text-decoration: none; }
 
     /* ── Sections ── */
-    .section { margin-top: 8px; }
+    .section { margin-top: 7px; }
     .section-title {
       font-size: 9pt;
       font-weight: 700;
@@ -152,13 +164,16 @@
 
   <!-- HEADER -->
   <div class="header">
-    <div class="name">JIMBOY S. LILAGAN</div>
-    <div class="title">Computer Science Student &nbsp;|&nbsp; Data Mining Track &nbsp;|&nbsp; Seeking OJT / Internship</div>
-    <div class="contact-strip">
-      <span>Isabela, Philippines</span>
-      <span>+63 997 965 6825</span>
-      <span><a href="mailto:lilaganjimboy24@gmail.com">lilaganjimboy24@gmail.com</a></span>
-      <span><a href="https://github.com/LilaganJimboy" target="_blank">github.com/LilaganJimboy</a></span>
+    <img class="photo" src="profile.jpg" alt="Jimboy S. Lilagan">
+    <div class="header-text">
+      <div class="name">JIMBOY S. LILAGAN</div>
+      <div class="title">Computer Science Student &nbsp;|&nbsp; Data Mining Track &nbsp;|&nbsp; Seeking OJT / Internship</div>
+      <div class="contact-strip">
+        <span>Isabela, Philippines</span>
+        <span>+63 997 965 6825</span>
+        <span><a href="mailto:lilaganjimboy24@gmail.com">lilaganjimboy24@gmail.com</a></span>
+        <span><a href="https://github.com/LilaganJimboy" target="_blank">github.com/LilaganJimboy</a></span>
+      </div>
     </div>
   </div>
 
